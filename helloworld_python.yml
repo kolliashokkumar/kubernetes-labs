@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pythonhelloworld.example.com
+  labels:
+    name: python-helloworld
+spec:
+  containers:
+  - name: k8s-demo
+    image: akolli/my-pyhton-image
+    ports:
+      - name: python-port
+        containerPort: 3000
