@@ -10,4 +10,4 @@ spec:
     image: akolli/my-pyhton-image
     ports:
       - name: python-port
-        containerPort: 3000
+        containerPort: 4000
