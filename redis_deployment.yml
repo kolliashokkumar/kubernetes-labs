@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: redisdb
+  template:
+    metadata:
+      labels:
+        app: redisdb
+    spec:
+      containers:
+      - name: redis
+        image: redis
+        ports:
+        - name: redis-port
+          containerPort: 6379
+        livenessProbe:
+          httpGet:
+            path: /
+            port: redis-port
+          initialDelaySeconds: 15
+          timeoutSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /
+            port: redis-port
+          initialDelaySeconds: 15
+          timeoutSeconds: 30
