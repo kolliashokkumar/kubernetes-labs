@@ -18,15 +18,3 @@ spec:
         ports:
         - name: redis-port
           containerPort: 6379
-        livenessProbe:
-          httpGet:
-            path: /
-            port: redis-port
-          initialDelaySeconds: 15
-          timeoutSeconds: 30
-        readinessProbe:
-          httpGet:
-            path: /
-            port: redis-port
-          initialDelaySeconds: 15
-          timeoutSeconds: 30
